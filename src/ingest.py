@@ -7,4 +7,4 @@ def loadData(fileName):
         print("Data loaded successfully.")
         return data
     except FileNotFoundError:
-        print("File was not found. Please check the file path and try again.")
+        raise FileNotFoundError("File not found. Please check the file path and try again.")
