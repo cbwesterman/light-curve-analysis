@@ -1,20 +1,15 @@
 import ingest
+import visualize
 
 def main():
     
-    fileName = "sample_lightcurve.csv"
-    data = None
-    try:
-        data = ingest.loadData("data/raw/" + fileName)
-    except FileNotFoundError as e:
-        print(e)
-        return
+    # Use local .csv
+    # data = ingest.loadData("sample_lightcurve.csv")
+
+    # Use lightkurve library
+    # data = ingest.load_lightkurve("KIC 3733346", "data/raw/kic_3733346.csv")
     
-    print("Data loaded: \n" + str(data))
-    print("Mean of data: \n" + str(data.mean()))
-    print("Min of data: \n" + str(data.min()))
-    print("Max of data: \n" + str(data.max()))
-    print("Std of data: \n" + str(data.std()))
+    visualize.plot(data)
 
 if __name__ == "__main__":
     main()
