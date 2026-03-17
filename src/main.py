@@ -1,10 +1,12 @@
+import clean
 import ingest
 import visualize
 
 def main():
     
     # Use lightkurve library
-    data = ingest.load_lightkurve("KIC 3733346", "data/raw/kic_3733346.csv")
+    data = ingest.load_lightkurve("KIC 3733346")
+    data = clean.clean_lightkurve(data, "data/raw/kic_3733346.csv")
 
     # Print the number of data points
     print(f"Data points: {len(data)}\n")
